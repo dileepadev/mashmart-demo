@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     //  SignEmail
@@ -10,7 +12,7 @@ class SignUpScreen extends StatelessWidget {
       color: Colors.blueGrey.shade800,
       child: MaterialButton(
         minWidth: 150,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           print("Email");
         },
@@ -22,10 +24,10 @@ class SignUpScreen extends StatelessWidget {
               height: 20,
               width: 20,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text("Email",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
+                style: const TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
                     .copyWith(
                     color: Colors.white, fontWeight: FontWeight.bold)),
           ],
@@ -40,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
       color: Colors.red.shade600,
       child: MaterialButton(
         minWidth: 150,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           print("Google");
         },
@@ -52,10 +54,10 @@ class SignUpScreen extends StatelessWidget {
               height: 20,
               width: 20,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text("Google",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
+                style: const TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
                     .copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold)),
           ],
@@ -69,7 +71,7 @@ class SignUpScreen extends StatelessWidget {
       color: Colors.blue.shade700,
       child: MaterialButton(
         minWidth: 150,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           print("Facebook");
           /*Navigator.of(context).push(MaterialPageRoute(builder: (_) {
@@ -84,10 +86,10 @@ class SignUpScreen extends StatelessWidget {
               height: 20,
               width: 20,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text("Facebook",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
+                style: const TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
                     .copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold)),
           ],
@@ -101,7 +103,7 @@ class SignUpScreen extends StatelessWidget {
       color: Colors.blue,
       child: MaterialButton(
         minWidth: 150,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           print("Twitter");
         },
@@ -113,10 +115,10 @@ class SignUpScreen extends StatelessWidget {
               height: 20,
               width: 20,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text("Twitter",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
+                style: const TextStyle(fontFamily: 'Montserrat', fontSize: 18.0)
                     .copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold)),
           ],
@@ -134,8 +136,8 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    margin: EdgeInsets.all(20),
-                    child: Text("Sign Up",
+                    margin: const EdgeInsets.all(20),
+                    child: const Text("Sign Up",
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
@@ -148,23 +150,23 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Image.asset('assets/images/account_signup_screen.png', height: 300, width: 320,),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   signUpEmailButton,
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   signUpGoogleButton,
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   signUpFacebookButton,
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   signUpTwitterButton,
                 ],
               )

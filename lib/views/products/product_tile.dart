@@ -3,11 +3,11 @@ import 'package:mashmart/models/product_model.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
-  const ProductTile(this.product);
+  const ProductTile(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       elevation: 2,
     );
   }

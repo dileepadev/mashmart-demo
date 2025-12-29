@@ -4,8 +4,7 @@ import 'package:mashmart/services/api_service.dart';
 
 class ProductController extends GetxController {
   var isLoading = true.obs;
-  //Rx<Data> productList = Data().obs;
-  List<Data> products;
+  var products = <Data>[].obs;
 
   @override
   void onInit() {
@@ -14,11 +13,11 @@ class ProductController extends GetxController {
   }
 
   void fetchProducts() async {
-    try{
+    try {
       isLoading(true);
-      products = await ApiService.fetchProducts();
-      if(products != null){
-
+      var result = await ApiService.fetchProducts();
+      if (result != null) {
+        products.assignAll(result);
       }
     } finally {
       isLoading(false);

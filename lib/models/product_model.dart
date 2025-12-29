@@ -1,59 +1,59 @@
 class Product {
-  int code;
-  Meta meta;
-  List<Data> data;
+  int? code;
+  Meta? meta;
+  List<Data>? data;
 
   Product({this.code, this.meta, this.data});
 
   Product.fromJson(Map<String, dynamic> json) {
     code = json['code'];
-    meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
+    meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
     if (json['data'] != null) {
-      data = new List<Data>();
+      data = <Data>[];
       json['data'].forEach((v) {
-        data.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
-    if (this.meta != null) {
-      data['meta'] = this.meta.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
+    if (meta != null) {
+      data['meta'] = meta!.toJson();
     }
     if (this.data != null) {
-      data['data'] = this.data.map((v) => v.toJson()).toList();
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Meta {
-  Pagination pagination;
+  Pagination? pagination;
 
   Meta({this.pagination});
 
   Meta.fromJson(Map<String, dynamic> json) {
     pagination = json['pagination'] != null
-        ? new Pagination.fromJson(json['pagination'])
+        ? Pagination.fromJson(json['pagination'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.pagination != null) {
-      data['pagination'] = this.pagination.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (pagination != null) {
+      data['pagination'] = pagination!.toJson();
     }
     return data;
   }
 }
 
 class Pagination {
-  int total;
-  int pages;
-  int page;
-  int limit;
+  int? total;
+  int? pages;
+  int? page;
+  int? limit;
 
   Pagination({this.total, this.pages, this.page, this.limit});
 
@@ -65,34 +65,34 @@ class Pagination {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['total'] = this.total;
-    data['pages'] = this.pages;
-    data['page'] = this.page;
-    data['limit'] = this.limit;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['total'] = total;
+    data['pages'] = pages;
+    data['page'] = page;
+    data['limit'] = limit;
     return data;
   }
 }
 
 class Data {
-  int id;
-  String name;
-  String description;
-  String image;
-  String price;
-  String discountAmount;
-  bool status;
-  List<Categories> categories;
+  int? id;
+  String? name;
+  String? description;
+  String? image;
+  String? price;
+  String? discountAmount;
+  bool? status;
+  List<Categories>? categories;
 
   Data(
       {this.id,
-        this.name,
-        this.description,
-        this.image,
-        this.price,
-        this.discountAmount,
-        this.status,
-        this.categories});
+      this.name,
+      this.description,
+      this.image,
+      this.price,
+      this.discountAmount,
+      this.status,
+      this.categories});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -103,32 +103,32 @@ class Data {
     discountAmount = json['discount_amount'];
     status = json['status'];
     if (json['categories'] != null) {
-      categories = new List<Categories>();
+      categories = <Categories>[];
       json['categories'].forEach((v) {
-        categories.add(new Categories.fromJson(v));
+        categories!.add(Categories.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['image'] = this.image;
-    data['price'] = this.price;
-    data['discount_amount'] = this.discountAmount;
-    data['status'] = this.status;
-    if (this.categories != null) {
-      data['categories'] = this.categories.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['image'] = image;
+    data['price'] = price;
+    data['discount_amount'] = discountAmount;
+    data['status'] = status;
+    if (categories != null) {
+      data['categories'] = categories!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Categories {
-  int id;
-  String name;
+  int? id;
+  String? name;
 
   Categories({this.id, this.name});
 
@@ -138,9 +138,9 @@ class Categories {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

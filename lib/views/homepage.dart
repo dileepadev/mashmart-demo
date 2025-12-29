@@ -6,13 +6,15 @@ import 'package:mashmart/controllers/product_controller.dart';
 class HomePage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
   final ProductController productController = Get.put(ProductController());
-  final ScrollController scrollController = new ScrollController();
+  final ScrollController scrollController = ScrollController();
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: Drawer(),
+      drawer: const Drawer(),
       appBar: AppBar(
         title: Image.asset(
           'assets/images/mashmart_logo_h.png',
@@ -23,18 +25,18 @@ class HomePage extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.grey.shade50,
         leading: IconButton(
-          icon: Icon(Icons.menu_rounded),
+          icon: const Icon(Icons.menu_rounded),
           color: Colors.black87,
           onPressed: () {
             print("Drawer Menu Clicked");
-            _key.currentState.openDrawer();
+            _key.currentState?.openDrawer();
           },
         ),
         actions: <Widget>[
           Stack(
             children: [
               IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart,
                     size: 30,
                     color: Colors.black87,
@@ -48,10 +50,10 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   height: 21,
                   width: 21,
-                  padding: EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.teal.shade700),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "0",
                       style: TextStyle(
@@ -67,7 +69,7 @@ class HomePage extends StatelessWidget {
           Stack(
             children: [
               IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.notifications_rounded,
                     size: 30,
                     color: Colors.black87,
@@ -81,10 +83,10 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   height: 21,
                   width: 21,
-                  padding: EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.teal.shade700),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "0",
                       style: TextStyle(
@@ -112,7 +114,7 @@ class HomePage extends StatelessWidget {
                       TextFormField(
                         decoration: InputDecoration(
                             hintText: "Search for markets or products",
-                            prefixIcon: Icon(Icons.search_rounded),
+                            prefixIcon: const Icon(Icons.search_rounded),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
@@ -137,7 +139,7 @@ class HomePage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             "Products",
                             style: TextStyle(
                                 fontSize: 18,
@@ -147,7 +149,7 @@ class HomePage extends StatelessWidget {
                           Row(
                             children: [
                               IconButton(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.list_rounded,
                                     color: Colors.black87,
                                   ),
@@ -155,7 +157,7 @@ class HomePage extends StatelessWidget {
                                     print("List Clicked");
                                   }),
                               IconButton(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.grid_view,
                                     color: Colors.black,
                                   ),
@@ -174,12 +176,12 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              if (productController.isLoading.value)
-                return Center(child: CircularProgressIndicator());
-              else
-                print("Total Products = " +
-                    productController.products.length.toString());
-              return StaggeredGridView.countBuilder(
+              if (productController.isLoading.value) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                print("Total Products = ${productController.products.length}");
+              }
+              return MasonryGridView.count(
                 crossAxisCount: 2,
                 itemCount: productController.products.length,
                 crossAxisSpacing: 12,
@@ -202,7 +204,7 @@ class HomePage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Image.network(
-                                    productController.products[index].image,
+                                    productController.products[index].image ?? 'https://via.placeholder.com/150',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -212,7 +214,7 @@ class HomePage extends StatelessWidget {
                                     child: CircleAvatar(
                                       backgroundColor: Colors.teal.shade700,
                                       child: IconButton(
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.shopping_cart,
                                             size: 22,
                                             color: Colors.white,
@@ -223,19 +225,19 @@ class HomePage extends StatelessWidget {
                                     )),
                               ],
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Text(
-                              productController.products[index].name,
-                              style: TextStyle(
+                              productController.products[index].name ?? 'No Name',
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                   color: Colors.black87),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Text(
-                              productController.products[index].price,
-                              style: TextStyle(
+                              productController.products[index].price ?? '',
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                   color: Colors.black54),
@@ -245,7 +247,6 @@ class HomePage extends StatelessWidget {
                         )),
                   );
                 },
-                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
               );
             }),
           )
