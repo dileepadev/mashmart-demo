@@ -30,7 +30,8 @@ Initial release date - March 22, 2021
 > This repository is a clean re-upload to my new GitHub account. No new features or functionality have been added. Minor compatibility fixes may have been applied to ensure the project runs correctly in the current environment. Please note that the original commit history from the previous account is not preserved. This update is primarily for migration purposes.
 >
 > **Initial release date:** March 22, 2021  
-> **Migration date:** December 29, 2025
+> **Migration date:** December 30, 2025  
+> **Last review date:** December 31, 2025
 
 ## 💡 Deployment
 
@@ -115,4 +116,4 @@ If you want to contact me, leave a message via email.
 ## 📜 License
 
 This project is licensed under the MIT License.  
-See the license file for more details [LICENSE.md](./LICENSE)
+See the license file for more details [LICENSE](./LICENSE)
